@@ -72,10 +72,8 @@ These features are restated in the following list:
 * When a user accesses a bookmark, the access is recorded with the bookmark, the user -- or anonymous user -- and the timestamp.
 
 Once you have all these features, you will need to generate a good amount of
-click data. Create fake data for this. Numpy and Faker are useful libraries for
+click data. Create fake data for this. Faker is a useful libraries for
 creating your fake data.
-
-Add a stats page for each link where you can see the traffic for that link for the last 30 days in a line chart.
 
 Add an overall stats page for each user where you can see a table of their links by popularity and their number
 of clicks over the last 30 days. This page should only be visible to that user.
