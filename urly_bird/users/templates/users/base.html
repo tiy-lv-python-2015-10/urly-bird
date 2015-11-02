@@ -1,16 +1,34 @@
-
+           {% load bootstrap3 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title></title>
+
+
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+
 </head>
 <body>
-    {{ user }}
+
+
     {% if user.is_authenticated %}
-      <p>you are logged in {{ user.username }}</p>
+      <h1 style="display: inline-block;">hello {{ user.username }}</h1>
+        <a href="{% url 'logout' %}" style="display: inline-block; margin-left: 20px;"> <h3>LOGOUT</h3></a>
+        <a href="{% url 'chirp_create' %}" style="display: inline-block; margin-left: 20px;"> <h3>Create Bookmark</h3></a>
+        <a href="{% url 'list_bookmarks' %}" style="display: inline-block; margin-left: 20px;"> <h3>List all bookmarks</h3></a>
+
+
+
+
+
+
+
 
     {% else %}
+        {{ user }}
        <p>you are logged out</p>
 
 

@@ -12,12 +12,14 @@ from django.utils import timezone
 from django.views.generic import View, ListView, DetailView, CreateView
 from bookmarks.models import Bookmark
 from bookmarks.forms import BookmarkForm
+from django.views.generic import TemplateView
+from django.shortcuts import render_to_response
 
 # Create your views here.
 class ListBookMarks(ListView):
     model = Bookmark
     queryset = Bookmark.objects.order_by('-timestamp')
-    paginate_by = 10
+    paginate_by = 5
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -37,6 +39,9 @@ class CreateBookmark(CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super(CreateBookmark, self).form_valid(form)
+
+def welcome_page(request):
+   return render_to_response('bookmarks/welcome_page.html')
 
 
 

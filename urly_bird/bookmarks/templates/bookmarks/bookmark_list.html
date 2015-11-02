@@ -1,12 +1,31 @@
 
 {% extends 'users/base.html' %}
+
+
 {% block content %}
 
-        {% for bookmark in bookmark_list %}
-        <ul>
-            <li>{{ bookmark.title }}</li>
-        </ul>
-    {% endfor %}
+    <div class="row">
+        <div class="col-xs-12 col-sm-10">
+            {% for bookmark in bookmark_list %}
+                <ul>
+                    <li><a href="{% url 'bookmark_detail' bookmark.id %}">{{ bookmark.title }}</a></li>
+                </ul>
+            {% endfor %}
+
+            {% if is_paginated %}
+                {% if page_obj.has_previous %}
+                    <a href="{% url 'list_bookmarks' %}?page={{ page_obj.previous_page_number }}"><-Prev</a>
+                {% endif %}
+            {{ page_obj }}
+                {% if page_obj.has_next %}
+                    <a href="{% url 'list_bookmarks' %}?page={{ page_obj.next_page_number }}">Next -></a>
+                {% endif %}
+            {% endif %}
+        </div>
+        <div class="col-xs-12 col-sm-2">
+        hellow
+        </div>
+    </div>
 
 {% endblock %}
 

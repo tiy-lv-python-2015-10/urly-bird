@@ -20,12 +20,14 @@ from users.views import CreateUser
 from bookmarks.views import CreateBookmark, BookmarkDetail
 from django.conf.urls import url
 from django.contrib.auth.decorators import login_required
+from django.views.generic import TemplateView
 
 urlpatterns = [
+    url(r'^$', TemplateView.as_view(template_name="bookmarks/welcome_page.html"), name='welcome_page'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('django.contrib.auth.urls')),
     url(r'^register/', CreateUser.as_view(), name='register'),
-    url(r'^bookmarks/', ListBookMarks.as_view(), name="list_bookmarks"),
+    url(r'^bookmarks/$', ListBookMarks.as_view(), name="list_bookmarks"),
     url(r'^create/$', login_required(CreateBookmark.as_view()), name='chirp_create'),
-    url(r'^(?P<pk>\d+)/$', BookmarkDetail.as_view(),name='bookmark_detail'),
+    url(r'^bookmarks/(?P<pk>\d+)/$', BookmarkDetail.as_view(),name='bookmark_detail'),
 ]
