@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends 'urly_bird/urly_bird_base.html' %}
+{% load bootstrap3 %}
+
+{% block content %}
     <h2>Create A Bookmark!</h2>
+    <br>
+    <p>Enter a url you would like shortened, and we'll create a hash for you.</p>
     <form method="post" action="{% url 'bookmark_create' %}">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Bookmark!" name="submit">
-
     </form>
-
-</body>
-</html>
+{% endblock %}

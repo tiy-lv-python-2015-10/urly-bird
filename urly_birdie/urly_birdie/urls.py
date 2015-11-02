@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+import urly_bird
 from users.views import Register
 from urly_bird.views import ListBookmarks
 
@@ -24,5 +25,6 @@ urlpatterns = [
     url(r'^logout/', 'django.contrib.auth.views.logout', {'next_page': "/bookmarks/"}, name='logout'),
     url(r'^', include('django.contrib.auth.urls')),
     url(r'^register/', Register.as_view(), name='register'),
+    url(r'^z/(?P<link_id>.{6})/$', 'urly_bird.views.link', name='link')
     #url(r'^users/', include('users.urls'))# , {'next_page': '/login/'}, name='register')
 ]

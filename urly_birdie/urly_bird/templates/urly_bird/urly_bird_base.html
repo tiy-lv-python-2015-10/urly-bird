@@ -1,0 +1,28 @@
+{% load bootstrap3 %}
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Urly_Bird {% block title %}{% endblock %}</title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+    <div class="container">
+        {% if user.is_authenticated %}
+    <p>You are logged in as <strong>{{ user.username }}</strong></p>
+    <p><a href="{%  url 'logout' %}">Logout</a></p>
+    <p><a href="{% url 'user_list' %}">View/Update/Delete</a> your bookmarks</p>
+        {% else %}
+            <p>You are logged out. Click to <a href="{%  url 'login' %}">login</a></p>
+            <p>Or click to <a href="{% url 'register' %}">Register</a></p>
+        {% endif %}
+    <p><a href="{% url 'list_bookmarks' %}">HOME</a></p>
+    <p><a href="{% url 'bookmark_create' %}">CREATE bookmark</a></p>
+    {% bootstrap_messages %}
+    {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
+

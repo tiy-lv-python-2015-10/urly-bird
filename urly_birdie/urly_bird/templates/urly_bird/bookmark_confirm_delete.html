@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends 'urly_bird/urly_bird_base.html' %}
+{% load bootstrap3 %}
 
-</body>
-</html>
+{% block content %}
+    <h2>Update bookmark</h2>
+    <form method="post" action="{% url 'bookmark_delete' bookmark.id %}" class="form">
+        {% csrf_token %}
+        <p>Are you sure you want to delete "{{ bookmark }}"?</p>
+        <input type="submit" value="DELETE!" name="submit" class="btn btn-primary">
+    </form>
+{% endblock %}

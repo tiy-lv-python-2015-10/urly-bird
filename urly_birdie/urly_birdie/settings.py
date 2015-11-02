@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'urly_bird',
     'users',
     'debug_toolbar',
+    'bootstrap3'
 )
 
 MIDDLEWARE_CLASSES = (

@@ -19,6 +19,6 @@ class Register(View):
             user.email = form.cleaned_data['email']
             user.set_password(form.cleaned_data['password'])
             user.save()
-            return HttpResponseRedirect(reverse('login'))
+            return HttpResponseRedirect(reverse('bookmark_create'))
 
         return render(self.request, 'registration/register.html', {'form': form})

@@ -2,20 +2,15 @@
 {% load bootstrap3 %}
 
 {% block content %}
-    <h3>Create short URL's</h3>
-        <p>Welcome. Create a short url (bookmark) and link to it through /z/hash.</p>
-        <p>Example: <a href="localhost:8000/z/9avmeG">localhost:8000/z/9avmeG</a></p>
-    <h2>Top Bookmarks</h2>
+    <h4>show bookmark creator's name here</h4>
     <ul>
-        {% for bookmark in bookmark_list %}
-        <li>
-            <a href="{% url 'bookmark_detail' bookmark.id %}">{{ bookmark.title }} </a>
+        {% for bookmark in bookmarks %}
+        <li><a href="{% url 'bookmark_detail' bookmark.id %}">{{ bookmark.title }} </a></li>
             <ul>
                 <li>Number of Clicks: {{ bookmark.num_clicks }}</li>
                 <li>Shortcut Hash: <a href="{% url 'link' bookmark.short_id %}">{{ bookmark.short_id }}</a></li>
-                <li>Created by: <a href="{% url 'any_list' bookmark.human.username %}">{{ bookmark.human }}</a></li>
+                <li>Created at: {{ bookmark.created_at }}</li>
             </ul>
-        </li>
         {% endfor %}
     </ul>
     <br>
@@ -28,5 +23,4 @@
         <a href="{% url 'list_bookmarks' %}?page={{ page_obj.next_page_number }}">Next -></a>
     {% endif %}
     {% endif %}
-
 {% endblock %}
