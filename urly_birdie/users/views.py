@@ -6,6 +6,7 @@ from users.forms import RegistrationForm
 
 
 class Register(View):
+    """Crappy Registration Form. Next time use the built in"""
 
     def get(self, request):
         form = RegistrationForm()

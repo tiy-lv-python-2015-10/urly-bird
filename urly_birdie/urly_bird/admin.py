@@ -3,8 +3,9 @@ from urly_bird.models import Bookmark, Click
 
 
 @admin.register(Bookmark)
-class MovieAdmin(admin.ModelAdmin):
+class BookmarkAdmin(admin.ModelAdmin):
     list_display = ('id', 'human', 'title', 'url', 'description', 'created_at')
+
 
 @admin.register(Click)
 class ClickAdmin(admin.ModelAdmin):

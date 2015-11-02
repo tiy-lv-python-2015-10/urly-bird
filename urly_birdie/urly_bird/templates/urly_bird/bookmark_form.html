@@ -7,7 +7,7 @@
     <p>Enter a url you would like shortened, and we'll create a hash for you.</p>
     <form method="post" action="{% url 'bookmark_create' %}">
         {% csrf_token %}
-        {{ form.as_p }}
+        {% bootstrap_form form %}
         <input type="submit" value="Bookmark!" name="submit">
     </form>
 {% endblock %}

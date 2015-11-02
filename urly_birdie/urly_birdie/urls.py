@@ -26,5 +26,4 @@ urlpatterns = [
     url(r'^', include('django.contrib.auth.urls')),
     url(r'^register/', Register.as_view(), name='register'),
     url(r'^z/(?P<link_id>.{6})/$', 'urly_bird.views.link', name='link')
-    #url(r'^users/', include('users.urls'))# , {'next_page': '/login/'}, name='register')
 ]

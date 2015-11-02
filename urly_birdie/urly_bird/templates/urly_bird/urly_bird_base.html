@@ -13,12 +13,12 @@
         {% if user.is_authenticated %}
     <p>You are logged in as <strong>{{ user.username }}</strong></p>
     <p><a href="{%  url 'logout' %}">Logout</a></p>
-    <p><a href="{% url 'user_list' %}">View/Update/Delete</a> your bookmarks</p>
+    <p><a href="{% url 'user_list' %}">Your Bookmarks</a> - View/Update/Delete</p>
         {% else %}
             <p>You are logged out. Click to <a href="{%  url 'login' %}">login</a></p>
             <p>Or click to <a href="{% url 'register' %}">Register</a></p>
         {% endif %}
-    <p><a href="{% url 'list_bookmarks' %}">HOME</a></p>
+    <p><a href="{% url 'list_bookmarks' %}">HOME</a> - Top Bookmarks</p>
     <p><a href="{% url 'bookmark_create' %}">CREATE bookmark</a></p>
     {% bootstrap_messages %}
     {% block content %}{% endblock %}
