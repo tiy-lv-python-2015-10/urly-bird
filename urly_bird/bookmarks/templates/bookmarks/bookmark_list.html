@@ -1,0 +1,12 @@
+
+{% extends 'users/base.html' %}
+{% block content %}
+
+        {% for bookmark in bookmark_list %}
+        <ul>
+            <li>{{ bookmark.title }}</li>
+        </ul>
+    {% endfor %}
+
+{% endblock %}
+

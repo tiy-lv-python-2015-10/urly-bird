@@ -1,0 +1,12 @@
+{% block content %}
+    <h2>Bookmark Detail</h2>
+
+    <ul>
+        <li>Title: {{ bookmark.title }}</li>
+        <li>Message: {{ bookmark.description }}</li>
+        <li>Author: {{ bookmark.user.username }}</li>
+        <li>Posted at: {{ bookmark.timestamp }}</li>
+        <li>URL: {{ bookmark.bookmark_url }}</li>
+    </ul>
+
+{% endblock %}

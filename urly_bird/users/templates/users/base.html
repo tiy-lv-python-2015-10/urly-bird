@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    {{ user }}
+    {% if user.is_authenticated %}
+      <p>you are logged in {{ user.username }}</p>
+
+    {% else %}
+       <p>you are logged out</p>
+
+
+
+    {% endif %}
+
+      {% block content %}
+
+      {% endblock %}
+
+</body>
+</html>
+
+
+
