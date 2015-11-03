@@ -39,7 +39,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'bootstrap3',
     'bookmarks',
-    'users'
+    'users',
+    'django_extensions',
+
 
 )
 

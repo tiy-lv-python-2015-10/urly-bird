@@ -6,10 +6,10 @@
  <div class="jumbotron">
     <div class="row">
         <div class="col-xs-12 col-sm-10">
-            <h2>All bookmarks</h2>
+            <h2>My bookmarks</h2>
             {% for bookmark in bookmark_list %}
                 <ul>
-                    <li><a href="{% url 'bookmark_detail' bookmark.id %}">{{ bookmark.title }} {{ bookmark.user }}</a></li>
+                    <li><a href="{% url 'bookmark_detail' bookmark.id %}">{{ bookmark.title }}</a></li>
                 </ul>
             {% endfor %}
 

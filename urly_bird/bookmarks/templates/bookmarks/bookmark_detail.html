@@ -1,3 +1,6 @@
+
+{% extends 'users/base.html' %}
+{% load bootstrap3 %}
 {% block content %}
     <h2>Bookmark Detail</h2>
 
@@ -8,5 +11,9 @@
         <li>Posted at: {{ bookmark.timestamp }}</li>
         <li>URL: {{ bookmark.bookmark_url }}</li>
     </ul>
+    {% if user.is_authenticated %}
+        <p><a class="btn btn-primary btn-block" href="{% url 'bookmark_edit' bookmark.id %}" role="button" style="display: inline-block;">Edit</a></p>
+        <p><a class="btn btn-danger btn-block" href="{% url 'bookmark_delete' bookmark.id %}" role="button" style="display: inline-block;">Delete</a></p>
+    {% endif %}
 
 {% endblock %}

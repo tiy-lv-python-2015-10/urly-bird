@@ -9,7 +9,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.utils import timezone
-from django.views.generic import View, ListView, DetailView, CreateView
+from django.views.generic import View, ListView, DetailView, CreateView, UpdateView, DeleteView
 from bookmarks.models import Bookmark
 from bookmarks.forms import BookmarkForm
 from django.views.generic import TemplateView
@@ -26,8 +26,36 @@ class ListBookMarks(ListView):
         context['page_load'] = timezone.now()
         return context
 
+class ListProfile(ListView):
+   model = Bookmark
+   template_name = 'bookmarks/profile_list.html'
+   paginate_by = 5
+
+   def get_queryset(self):
+       return Bookmark.objects.filter(user__username=self.request.user.username).order_by('-timestamp')
+
+   def get_context_data(self, **kwargs):
+       context = super().get_context_data(**kwargs)
+       context['page_load'] = timezone.now()
+       return context
+
 class BookmarkDetail(DetailView):
     model = Bookmark
+
+class EditBookmark(UpdateView):
+    model = Bookmark
+    form_class = BookmarkForm
+    success_url = reverse_lazy('list_bookmarks')
+    # template_name = 'bookmarks/bookmark_create.html'
+    template_name_suffix = '_update_form'
+
+
+class DeleteBookmark(DeleteView):
+    model = Bookmark
+    success_url = reverse_lazy('list_bookmarks')
+
+
+
 
 
 class CreateBookmark(CreateView):
