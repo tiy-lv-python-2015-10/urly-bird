@@ -4,8 +4,11 @@
 *.log
 *.pot
 *.pyc
+*.envrc
+*.direnv
 __pycache__/
 local_settings.py
+
 
 # Created by https://www.gitignore.io
 
@@ -67,4 +70,3 @@ docs/_build/
 
 # PyBuilder
 target/
-
